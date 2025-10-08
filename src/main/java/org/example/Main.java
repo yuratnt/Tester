@@ -5,17 +5,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.List;
-
 
 public class Main {
     public static void main(String[] args) {
+
+
         WebDriver driver = new FirefoxDriver();
         driver.get("https://practice-automation.com/form-fields/");
 
-        WebElement element = driver.findElement(By.id("name-input"));
-        System.out.println(element);
+        WebElement element = driver.findElement(By.id("drink1"));
 
-        System.out.println(element.getAttribute("clientWidth"));
+        element.click();
+
+        System.out.println(element.getAttribute("value"));
+
+        System.out.println("task completed");
+
     }
 }
