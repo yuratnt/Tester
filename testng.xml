@@ -8,7 +8,8 @@
         <parameter name="password" value="123"/>
         <parameter name="checkBoxOption" value="1,2,3,4,5"/>
         <parameter name="radioBoxOption" value="5"/>
-        <parameter name="select" value="yes"/>
+        <parameter name="select" value="no"/>
+        <parameter name="email" value="exemple@gmail.com"/>
 
         <groups>
             <run>

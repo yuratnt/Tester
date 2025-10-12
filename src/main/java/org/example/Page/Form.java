@@ -21,8 +21,8 @@ public class Form {
     WebElement radio;
 
     Select select;
-    //WebElement email = driver.findElement(By.id("email"));
-    //WebElement message = driver.findElement(By.id("message"));
+    WebElement email;
+    WebElement message;
 
     public Form() {
         driver.get("https://practice-automation.com/form-fields/");
@@ -33,9 +33,6 @@ public class Form {
 
     public void login(String username, String pass) {
         name.sendKeys(username);
-
-        if (pass.isEmpty()) return;
-
         password.sendKeys(pass);
     }
 
@@ -65,11 +62,19 @@ public class Form {
 
     public void select(String option) {
         if (option.isEmpty()) return;
-
         select = new Select(driver.findElement(By.id("automation")));
         select.selectByValue(option);
     }
 
+    public void email(String text) {
+        email = driver.findElement(By.id("email"));
+        email.sendKeys(text);
+    }
+
+    public void message() {
+        message = driver.findElement(By.xpath("//"));
+
+    }
 
 
 

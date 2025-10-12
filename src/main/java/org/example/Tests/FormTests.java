@@ -31,4 +31,15 @@ public class FormTests {
     public void select(String select) {
         form.select(select);
     }
+
+    @Parameters ({"email"})
+    @Test (groups = {"allFormTest"})
+    public void email(String email) {
+        form.email(email);
+    }
+
+    @Test
+    public void message() {
+        form.message();
+    }
 }
