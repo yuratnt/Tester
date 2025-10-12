@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+
+
+    <test name="Test1">
+        <parameter name="name" value="test"/>
+        <parameter name="password" value="123"/>
+        <parameter name="checkBoxOption" value="1,2,3,4,5"/>
+        <parameter name="radioBoxOption" value="5"/>
+        <parameter name="select" value="yes"/>
+
+        <groups>
+            <run>
+                <include name="allFormTest"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="org.example.Tests.FormTests"/>
+        </classes>
+    </test>
+
+
+</suite>

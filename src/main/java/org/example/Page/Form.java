@@ -1,6 +1,5 @@
-package org.example.algorithm;
+package org.example.Page;
 
-import org.example.gui.ConsoleInterface;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,27 +10,73 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
-public class Algorithm {
-    private final WebDriver driver;
+public class Form {
+    WebDriver driver = new FirefoxDriver();
+    Actions actions = new Actions(driver);
+    WebElement name;
+    WebElement password;
 
-    public Algorithm() {
-        this.driver = new FirefoxDriver();
+    WebElement checkbox;
+    WebElement radio;
+
+    Select select;
+    //WebElement email = driver.findElement(By.id("email"));
+    //WebElement message = driver.findElement(By.id("message"));
+
+    public Form() {
+        driver.get("https://practice-automation.com/form-fields/");
+
+        name = driver.findElement(By.id("name-input"));
+        password = driver.findElement(By.xpath("//input[@type='password']"));
     }
 
-    private void connection(String url) {
-        if (url == null) return;
-        driver.get(url);
+    public void login(String username, String pass) {
+        name.sendKeys(username);
+
+        if (pass.isEmpty()) return;
+
+        password.sendKeys(pass);
     }
+
+    public void checkbox(String option) {
+        if (option.isEmpty()) return;
+
+        if (!option.contains(",")) {
+            checkbox = driver.findElement(By.id("drink" + option));
+            checkbox.click();
+            return;
+        }
+        String[] options = option.split(",");
+        for (String o : options) {
+            checkbox = driver.findElement(By.id("drink" + o));
+            checkbox.click();
+        }
+
+    }
+
+    public void radio(String option) {
+        actions.scrollByAmount(0, 700).perform();
+
+        if (option.isEmpty()) return;
+        radio = driver.findElement(By.id("color" + option));
+        radio.click();
+    }
+
+    public void select(String option) {
+        if (option.isEmpty()) return;
+
+        select = new Select(driver.findElement(By.id("automation")));
+        select.selectByValue(option);
+    }
+
+
+
 
     private WebElement findElement(By by) {
         return driver.findElement(by);
     }
     public String form(int count, String[] form) {
-        connection("https://practice-automation.com/form-fields/");
         Actions actions = new Actions(driver);
         Select select = new Select(findElement(By.id("automation")));
 
@@ -39,9 +84,6 @@ public class Algorithm {
         if (!form[2].isEmpty()) {
             if (form[2].contains(",")) drinks = form[2].split(",");
         }
-
-
-
 
 
         for (int i = 0; i < count; i++) {
@@ -82,19 +124,6 @@ public class Algorithm {
         driver.close();
 
         return "Проверка завершена. Проведено " + count + " запусков";
-    }
-
-    public String event() {
-        connection("https://practice-automation.com/click-events/");
-
-        return "task complete";
-    }
-
-    public String window() {
-        connection("https://practice-automation.com/popups/");
-
-
-        return "task complete";
     }
 
 }
