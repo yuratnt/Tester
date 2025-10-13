@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="Form test">
 
-    <test name="allFormTest">
+    <test name="allFormTests">
         <parameter name="name" value="test"/>
         <parameter name="password" value="123"/>
         <parameter name="checkBoxOption" value="1,2,3,4,5"/>
@@ -22,6 +22,8 @@
             <class name="org.example.Tests.FormTests"/>
         </classes>
     </test>
+
+
 
 
 </suite>
