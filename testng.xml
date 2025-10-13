@@ -2,14 +2,15 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
 
-
-    <test name="Test1">
+    <test name="allFormTest">
         <parameter name="name" value="test"/>
         <parameter name="password" value="123"/>
         <parameter name="checkBoxOption" value="1,2,3,4,5"/>
         <parameter name="radioBoxOption" value="5"/>
         <parameter name="select" value="no"/>
         <parameter name="email" value="exemple@gmail.com"/>
+        <parameter name="message" value=""/>
+        <parameter name="maxRetry" value="10"/>
 
         <groups>
             <run>
