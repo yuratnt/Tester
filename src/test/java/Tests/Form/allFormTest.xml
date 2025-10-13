@@ -19,7 +19,7 @@
         </groups>
 
         <classes>
-            <class name="org.example.Tests.FormTests"/>
+            <class name="org.example.Tests.FormTest"/>
         </classes>
     </test>
 
