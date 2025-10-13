@@ -1,12 +1,10 @@
 package org.example.Tests;
 
 import org.example.Page.Form;
-import org.testng.IRetryAnalyzer;
-import org.testng.ITestResult;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class FormTests {
+public class FormTest {
 
     Form form = new Form();
 
