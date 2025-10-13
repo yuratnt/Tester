@@ -24,16 +24,15 @@ public class Form {
 
     WebElement submit;
 
-    WebElement top;
-
     public Form() {
         driver.get("https://practice-automation.com/form-fields/");
 
-        name = driver.findElement(By.id("name-input"));
-        password = driver.findElement(By.xpath("//input[@type='password']"));
     }
 
     public void login(String username, String pass) {
+        name = driver.findElement(By.id("name-input"));
+        password = driver.findElement(By.xpath("//input[@type='password']"));
+
         name.sendKeys(username);
         password.sendKeys(pass);
     }
@@ -51,7 +50,6 @@ public class Form {
             checkbox = driver.findElement(By.id("drink" + o));
             checkbox.click();
         }
-
     }
 
     public void radio(String option) {

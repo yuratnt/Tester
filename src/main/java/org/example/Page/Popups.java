@@ -1,4 +1,4 @@
 package org.example.Page;
 
-public class Popup {
+public class Popups {
 }
