@@ -7,19 +7,19 @@ public class EventTest {
 
     Event event = new Event();
 
-    @Test (groups = {"allEventTest"})
+    @Test (groups = {"allEventTest", "catButton"}, retryAnalyzer = RertyTests.class)
     public void catButton() {
         event.catButtonClick();
     }
-    @Test (groups = {"allEventTest"})
+    @Test (groups = {"allEventTest", "dogButton"}, retryAnalyzer = RertyTests.class)
     public void dogButton() {
         event.dogButtonClick();
     }
-    @Test (groups = {"allEventTest"})
+    @Test (groups = {"allEventTest", "pigButton"}, retryAnalyzer = RertyTests.class)
     public void pigButton() {
         event.pigButtonClick();
     }
-    @Test (groups = {"allEventTest"})
+    @Test (groups = {"allEventTest", "cowButton"}, retryAnalyzer = RertyTests.class)
     public void cowButton() {
         event.cowButtonClick();
     }

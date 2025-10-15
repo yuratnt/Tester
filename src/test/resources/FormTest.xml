@@ -10,7 +10,7 @@
         <parameter name="select" value="no"/>
         <parameter name="email" value="exemple@gmail.com"/>
         <parameter name="message" value=""/>
-        <parameter name="maxRetry" value="10"/>
+        <parameter name="submit" value="true"/>
 
         <groups>
             <run>

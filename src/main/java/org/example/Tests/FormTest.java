@@ -8,48 +8,55 @@ public class FormTest {
 
     Form form = new Form();
 
-    @Parameters ({"name", "password"})
-    @Test (groups = {"allFormTest"}, priority=1)
-    public void login(String name, String password) {
-        form.login(name, password);
+    @Parameters ({"name"})
+    @Test (groups = {"allFormTest", "name"}, priority=1, retryAnalyzer = RertyTests.class)
+    public void username(String name) {
+        form.username(name);
+    }
+
+    @Parameters ({"password"})
+    @Test (groups = {"allFormTest", "password"}, priority=2, retryAnalyzer = RertyTests.class)
+    public void password(String password) {
+        form.password(password);
     }
 
     @Parameters ({"checkBoxOption"})
-    @Test (groups = {"allFormTest"}, priority=2)
+    @Test (groups = {"allFormTest", "checkBox"}, priority=3, retryAnalyzer = RertyTests.class)
     public void checkBox(String checkBoxOption) {
         form.checkbox(checkBoxOption);
     }
 
     @Parameters ({"radioBoxOption"})
-    @Test (groups = {"allFormTest"}, priority=3)
+    @Test (groups = {"allFormTest", "radioBox"}, priority=4, retryAnalyzer = RertyTests.class)
     public void radio(String radioBoxOption) {
         form.radio(radioBoxOption);
     }
 
     @Parameters ({"select"})
-    @Test (groups = {"allFormTest"}, priority=4)
+    @Test (groups = {"allFormTest", "select"}, priority=5, retryAnalyzer = RertyTests.class)
     public void select(String select) {
         form.select(select);
     }
 
     @Parameters ({"email"})
-    @Test (groups = {"allFormTest"}, priority=5)
+    @Test (groups = {"allFormTest", "email"}, priority=6, retryAnalyzer = RertyTests.class)
     public void email(String email) {
         form.email(email);
     }
 
     @Parameters ({"message"})
-    @Test (groups = {"allFormTest"}, priority=6)
+    @Test (groups = {"allFormTest", "message"}, priority=7, retryAnalyzer = RertyTests.class)
     public void message(String message) {
         form.message(message);
     }
 
-    @Test (groups = {"allFormTest"}, priority=7)
-    public void submit() {
-        form.submit();
+    @Parameters ({"submit"})
+    @Test (groups = {"allFormTest", "submit"}, priority=8, retryAnalyzer = RertyTests.class)
+    public void submit(boolean submit) {
+        form.submit(submit);
     }
 
-    @Test (groups = {"allFormTest"}, priority=8)
+    @Test (groups = {"allFormTest", "alert"}, priority=9, retryAnalyzer = RertyTests.class)
     public void alert() {
         form.alert();
     }
