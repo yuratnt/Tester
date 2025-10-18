@@ -70,7 +70,8 @@ public class Form {
     }
 
     public void message(String option) {
-        actions.scrollByAmount(0, scroll + 500).perform();
+        scroll = scroll + 500;
+        actions.scrollByAmount(0, scroll).perform();
         if (option.isEmpty()) {
             StringBuilder text = new StringBuilder();
             for (int i = 1; i <= 5; i++) {
@@ -86,6 +87,10 @@ public class Form {
     }
 
     public void submit(boolean option) {
+        if (scroll != 1000) {
+            scroll = scroll - 500;
+            actions.scrollByAmount(0, scroll).perform();
+        }
         submit = option;
         if (submit) {
             driver.findElement(By.id("submit-btn")).click();
