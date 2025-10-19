@@ -17,12 +17,14 @@ public class Popup {
         driver.get("https://practice-automation.com/popups/");
     }
 
+    //обработка тестирования кнопки alert и модального окна после нажатия
     public void alert() {
         driver.findElement(By.id("alert")).click();
         driver.switchTo().alert().accept();
         logger.atInfo().log("Alert clicked");
     }
 
+    //обработка тестирования кнопки confirm и модального окна после нажатия
     public void confirm() {
         element = driver.findElement(By.id("confirm"));
         element.click();
@@ -35,6 +37,7 @@ public class Popup {
         logger.atInfo().log("Confirm dismissed. Result: " + text.getText());
     }
 
+    //обработка тестирования кнопки prompt и модального окна после нажатия
     public void prompt(String text) {
         element = driver.findElement(By.id("prompt"));
         element.click();
@@ -48,6 +51,7 @@ public class Popup {
         logger.atInfo().log("Prompt accepted. Result: " + prompt.getText());
     }
 
+    //обработка тестирования кнопки click me to see a tooltip и нажатие на текст появляющийся после
     public void tooltip() {
         element = driver.findElement(By.xpath("//div[@class='tooltip_1']"));
         element.click();

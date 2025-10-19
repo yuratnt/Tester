@@ -7,6 +7,7 @@ public class RertyTests implements IRetryAnalyzer {
     private int nowCount = 0;
     private static final int maxCount = 10;
 
+    //подъём упавших тестов
     @Override
     public boolean retry(ITestResult iTestResult) {
         if (nowCount < maxCount) {

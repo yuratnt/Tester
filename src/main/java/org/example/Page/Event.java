@@ -36,6 +36,7 @@ public class Event {
         buttonClick("cow");
     }
 
+    //Обработка тестирования кнопок
     private void buttonClick(String type) {
         button = driver.findElement(By.xpath("//button[@onClick='" + type + "Sound()']"));
         actions.moveToElement(button).click().pause(Duration.ofSeconds(1)).perform();

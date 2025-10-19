@@ -24,17 +24,20 @@ public class Form {
         driver.get("https://practice-automation.com/form-fields/");
     }
 
+    //обработка тестирования ввода имени
     public void username(String username) {
         if (username.isEmpty()) throw new TestException("Username is empty");
         driver.findElement(By.id("name-input")).sendKeys(username);
         logger.atInfo().log("Username: " + username);
     }
 
+    //обработка тестирования ввода пароля
     public void password(String pass) {
         driver.findElement(By.xpath("//input[@type='password']")).sendKeys(pass);
         logger.atInfo().log("Password: " + pass);
     }
 
+    //обработка тестирования выбора напитков
     public void checkbox(String option) {
         if (option.isEmpty()) throw new SkipException("Drink option is empty");
 
@@ -50,6 +53,7 @@ public class Form {
         }
     }
 
+    //обработка тестирования выбора цвета
     public void radio(String option) {
         actions.scrollByAmount(0, scroll).perform();
 
@@ -58,17 +62,20 @@ public class Form {
         logger.atInfo().log("Color: " + option + " clicked");
     }
 
+    //обработка тестирования выбора ответа на вопрос
     public void select(String option) {
         if (option.isEmpty()) throw new SkipException("Select option is empty");
         new Select(driver.findElement(By.id("automation"))).selectByValue(option);
         logger.atInfo().log("Selected: " + option);
     }
 
+    //обработка тестирования ввода почты
     public void email(String text) {
         driver.findElement(By.id("email")).sendKeys(text);
         logger.atInfo().log("Email: " + text);
     }
 
+    //обработка тестирования ввода сообщения
     public void message(String option) {
         scroll = scroll + 500;
         actions.scrollByAmount(0, scroll).perform();
@@ -86,6 +93,7 @@ public class Form {
         logger.atInfo().log("message: " + option);
     }
 
+    //обработка тестирования нажатия кнопки
     public void submit(boolean option) {
         if (scroll != 1000) {
             scroll = scroll - 500;
@@ -99,6 +107,7 @@ public class Form {
         else throw new SkipException("Submit option is false");
     }
 
+    //обработка тестирования модального окна
     public void alert() {
         if (submit) {
             driver.switchTo().alert().accept();
